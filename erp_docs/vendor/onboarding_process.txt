@@ -1,0 +1,8 @@
+Training Guide: Vendor Onboarding
+
+- Go to Buying > Supplier
+- Click "New"
+- Fill supplier details: Name, Type, Contact Info
+- Attach mandatory documents
+- Save and Submit
+- Procurement head reviews and approves

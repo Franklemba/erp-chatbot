@@ -1,0 +1,10 @@
+Title: Procurement Process SOP
+
+1. Raise a Material Request in ERPNext
+2. Reviewed by Department Head
+3. Goes to Procurement for Quotation Collection
+4. Vendor is selected through evaluation matrix
+5. Purchase Order is raised and sent for approval
+6. Upon approval, PO is sent to vendor
+7. Goods Receipt Note created upon delivery
+8. Invoice is verified and Payment Entry made

@@ -1,0 +1,8 @@
+Training Guide: Leave Application
+
+- Go to HR > Leave Application
+- Select Employee
+- Choose Leave Type (Annual, Sick, etc.)
+- Enter From Date and To Date
+- Submit for approval
+- Notification goes to Approver

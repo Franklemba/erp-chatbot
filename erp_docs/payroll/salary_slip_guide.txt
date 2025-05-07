@@ -1,0 +1,9 @@
+Title: How to Process a Salary Slip
+
+1. Go to Payroll > Salary Slip
+2. Click "New"
+3. Select Employee, Payroll Period, and Salary Structure
+4. Click "Get Employees"
+5. System will auto-fetch attendance, leave, and salary details
+6. Click "Save" and then "Submit"
+7. Use "Create PDF" or "Email" to distribute
