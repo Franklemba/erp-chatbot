@@ -1,0 +1,12 @@
+Training Guide: Employee Separation Clearance
+
+- Go to HR > Employee Separation
+- Select Employee who is exiting
+- Enter Separation Reason (e.g. resignation, termination, retirement)
+- Set Last Working Day
+- Initiate Clearance Process
+- Clearance tasks are auto-assigned to relevant departments (IT, Finance, Admin, etc.)
+- Each department marks their clearance as complete
+- HR reviews all department clearances
+- Final Approval is submitted by HR
+- Exit Interview can be scheduled if required

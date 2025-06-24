@@ -19,6 +19,7 @@ class Config(BaseSettings):
     huggingface_api_token: str = None
     openai_api_key: str = None
     google_api_key: str = None
+    pinecone_api_key: str = None
 
     class Config:
         env_file = ".env"
@@ -49,3 +50,4 @@ config = Config.from_yaml()
 config.huggingface_api_token = os.getenv("HUGGINGFACE_API_TOKEN")
 config.openai_api_key = os.getenv("OPENAI_API_KEY")
 config.google_api_key = os.getenv("GOOGLE_API_KEY") 
+config.pinecone_api_key = os.getenv("PINECONE_API_KEY")

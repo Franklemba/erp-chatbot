@@ -3,6 +3,7 @@ import aiofiles
 import asyncio
 import logging
 from langchain_community.document_loaders import TextLoader
+from langchain.schema import Document
 from typing import List
 
 logger = logging.getLogger(__name__)
@@ -15,11 +16,11 @@ class AsyncTextLoader:
         try:
             async with aiofiles.open(self.file_path, mode='r', encoding='utf-8') as f:
                 text = await f.read()
-            # Simulate the output format of TextLoader.load()
-            return [{
-                'page_content': text,
-                'metadata': {'source': self.file_path}
-            }]
+            # Return proper LangChain Document objects
+            return [Document(
+                page_content=text,
+                metadata={'source': self.file_path}
+            )]
         except Exception as e:
             logger.error(f"Error loading {self.file_path}: {str(e)}")
             return []
