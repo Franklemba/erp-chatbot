@@ -8,10 +8,9 @@ from fastapi import FastAPI, HTTPException, Request, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from langchain_huggingface import HuggingFaceEndpoint
 from pydantic import BaseModel
-from transformers import pipeline, AutoTokenizer
 import uvicorn
 
-# ERROR HANDLING
+# ERROR HANDLING 
 
 try:
     from langchain_community.vectorstores import FAISS
@@ -131,7 +130,7 @@ def setup_llama_llm():
 
         
         llm = HuggingFaceEndpoint(
-            repo_id="HuggingFaceH4/zephyr-7b-beta",  # Open access model
+            repo_id="HuggingFaceH4/zephyr-7b-beta",  
             huggingfacehub_api_token=hf_token,
             task="text-generation",
             temperature=0.1,
