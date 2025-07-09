@@ -1,0 +1,11 @@
+RAG Test Document for ERP Chatbot
+
+1. The ERP system was launched in 2024 to streamline business processes.
+2. The HR module allows employees to submit leave applications online.
+3. The payroll module processes salaries on the 25th of every month.
+4. Vendor onboarding requires submission of a signed contract and company profile.
+5. Employee resignation clearance must be approved by the HR manager and the IT department.
+6. Procurement SOP mandates at least three vendor quotations for purchases above $1000.
+7. The ERP chatbot can answer questions about HR, payroll, procurement, and vendor processes.
+
+This document is for testing retrieval-augmented generation (RAG) in the ERP chatbot system. 

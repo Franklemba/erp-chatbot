@@ -16,9 +16,11 @@ class Config(BaseSettings):
     llm_max_length: int = 512
     openai_model: str = None
     gemini_model: str = None
+    groq_model: str = None
     huggingface_api_token: str = None
     openai_api_key: str = None
     google_api_key: str = None
+    groq_api_key: str = None
     pinecone_api_key: str = None
 
     class Config:
@@ -40,6 +42,7 @@ class Config(BaseSettings):
             llm_max_length=llm.get("max_length", 512),
             openai_model=llm.get("openai_model"),
             gemini_model=llm.get("gemini_model"),
+            groq_model=llm.get("groq_model"),
         )
 
 # Load .env for secrets
@@ -50,4 +53,5 @@ config = Config.from_yaml()
 config.huggingface_api_token = os.getenv("HUGGINGFACE_API_TOKEN")
 config.openai_api_key = os.getenv("OPENAI_API_KEY")
 config.google_api_key = os.getenv("GOOGLE_API_KEY") 
+config.groq_api_key = os.getenv("GROQ_API_KEY")
 config.pinecone_api_key = os.getenv("PINECONE_API_KEY")

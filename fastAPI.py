@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
 from config import config
+from groq import Groq  
 
 # Set up logging
 logging.basicConfig(
@@ -174,6 +175,31 @@ async def chat(request: ChatbotRequest):
                 source = doc.metadata.get("source", "Unknown source")
                 sources.append(os.path.basename(source))
         response_time = time.time() - start_time
+        # Hybrid logic: If answer is a fallback, use Groq LLM directly
+        fallback_phrases = [
+            "This document does not contain",
+            "No answer found"
+        ]
+        if any(phrase in answer for phrase in fallback_phrases):
+            try:
+                groq_api_key = os.getenv("GROQ_API_KEY")
+                if not groq_api_key:
+                    logger.error("GROQ_API_KEY not found in environment variables")
+                    raise ValueError("GROQ_API_KEY not found in environment variables")
+                client = Groq(api_key=groq_api_key)
+                system_prompt = "You are a helpful ERP assistant. If you don't know the answer from the documents, answer as best you can or introduce yourself."
+                chat_completion = client.chat.completions.create(
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": request.query}
+                    ],
+                    model= config.groq_model
+                )
+                answer = chat_completion.choices[0].message.content
+                logger.info("Used Groq LLM for fallback answer.")
+            except Exception as e:
+                logger.error(f"Error using Groq LLM for fallback: {str(e)}")
+                # Keep the original fallback answer if Groq fails
         logger.info(f"Query processed in {response_time:.2f}s. Query: {request.query}")
         return ChatbotResponse(
             answer=answer,

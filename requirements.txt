@@ -2,10 +2,10 @@ fastapi
 uvicorn
 python-dotenv
 pydantic
-langchain
+langchain==0.3.24
 langchain-google-genai
 langchain-huggingface
-langchain-community
+langchain-community==0.3.23
 google-generativeai
 faiss-cpu
 sentence-transformers
@@ -13,3 +13,6 @@ PyYAML
 pydantic-settings
 aiofiles
 watchdog
+langsmith<0.4
+langchain-groq
+groq

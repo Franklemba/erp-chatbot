@@ -5,7 +5,7 @@ from config import config
 logger = logging.getLogger(__name__)
 
 def setup_llama_llm():
-    """Set up the selected LLM (HuggingFace, OpenAI, Gemini) using config."""
+    """Set up the selected LLM (HuggingFace, OpenAI, Gemini, Groq) using config."""
     provider = config.llm_provider.lower()
     logger.info(f"Setting up LLM provider: {provider}")
 
@@ -47,6 +47,18 @@ def setup_llama_llm():
             max_output_tokens=config.llm_max_length
         )
 
+    elif provider == "groq":
+        from langchain_groq import ChatGroq
+        if not config.groq_api_key:
+            logger.error("GROQ_API_KEY not found in environment variables")
+            raise ValueError("GROQ_API_KEY not found in environment variables")
+        return ChatGroq(
+            groq_api_key=config.groq_api_key,
+            model_name=config.groq_model or "gemma2-9b-it",
+            temperature=config.llm_temperature,
+            max_tokens=config.llm_max_length
+        )
+
     else:
         logger.error(f"Unsupported LLM provider: {provider}")
-        raise ValueError(f"Unsupported LLM provider: {provider}") 
+        raise ValueError(f"Unsupported LLM provider: {provider}")

@@ -2,10 +2,11 @@ docs_dir: erp_docs
 vectorstore_path: vectorstore
 hash_file: vectorstore/.docs_hash
 embedding_model: sentence-transformers/all-MiniLM-L6-v2
-llm_provider: huggingface  # or "openai" or "gemini"
+llm_provider: groq  # or "huggingface" or "openai" or "gemini"
 llm:
-  repo_id: HuggingFaceH4/zephyr-7b-beta
+  repo_id: gemma2-9b-it
   temperature: 0.1
   max_length: 512
   openai_model: gpt-3.5-turbo
-  gemini_model: gemini-pro 
+  gemini_model: gemini-pro
+  groq_model: gemma2-9b-it
